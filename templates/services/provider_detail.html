@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <div class="card custom-card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h2 class="mb-3">
+
+                    {{ provider.user.username }}
+
+                </h2>
+
+                <hr>
+
+                <p>
+
+                    <strong>Category:</strong>
+                    {{ provider.category }}
+
+                </p>
+
+                <p>
+
+                    <strong>Society:</strong>
+                    {{ provider.society }}
+
+                </p>
+
+                <p>
+
+                    <strong>Experience:</strong>
+                    {{ provider.experience_years }}
+                    Year(s)
+
+                </p>
+
+                <p>
+
+                    <strong>Charges:</strong>
+
+                    ₹{{ provider.price_per_visit }}/hour
+
+                </p>
+
+                <p>
+
+                    <strong>Phone:</strong>
+
+                    {{ provider.phone }}
+
+                </p>
+
+                <p>
+
+                    <strong>Availability:</strong>
+
+                    {% if provider.is_available %}
+
+                        <span class="badge bg-success">
+                            Available
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge bg-danger">
+                            Unavailable
+                        </span>
+
+                    {% endif %}
+
+                </p>
+
+                <div class="mt-4">
+
+                    <a
+                        href="/book/{{ provider.id }}/"
+                        class="btn btn-primary"
+                    >
+
+                        Book Service
+
+                    </a>
+
+                    <a
+                        href="/providers/"
+                        class="btn btn-secondary"
+                    >
+
+                        Back
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

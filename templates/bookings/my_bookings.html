@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="page-heading mb-4">
+    My Bookings
+</h1>
+
+{% for booking in bookings %}
+
+<div class="card custom-card mb-4">
+
+    <div class="card-body">
+
+        <h4 class="card-title">
+
+            Service Request
+
+        </h4>
+
+        <hr>
+
+        <p>
+
+            <strong>Provider:</strong>
+
+            {{ booking.provider.user.username }}
+
+        </p>
+
+        <p>
+
+            <strong>Category:</strong>
+
+            {{ booking.provider.category }}
+
+        </p>
+
+        <p>
+
+            <strong>Date:</strong>
+
+            {{ booking.date }}
+
+        </p>
+
+        <p>
+
+            <strong>Address:</strong>
+
+            {{ booking.address }}
+
+        </p>
+
+        <p>
+
+            <strong>Description:</strong>
+
+            {{ booking.description }}
+
+        </p>
+
+        <p>
+
+            <strong>Status:</strong>
+
+            {% if booking.status == 'pending' %}
+
+                <span class="badge bg-warning text-dark">
+
+                    Pending
+
+                </span>
+
+            {% elif booking.status == 'accepted' %}
+
+                <span class="badge bg-primary">
+
+                    Accepted
+
+                </span>
+
+            {% elif booking.status == 'completed' %}
+
+                <span class="badge bg-success">
+
+                    Completed
+
+                </span>
+
+            {% elif booking.status == 'rejected' %}
+
+                <span class="badge bg-danger">
+
+                    Rejected
+
+                </span>
+
+            {% elif booking.status == 'cancelled' %}
+
+                <span class="badge bg-secondary">
+
+                    Cancelled
+
+                </span>
+
+            {% endif %}
+
+        </p>
+
+        {% if booking.status == 'pending' %}
+
+            <a href="/booking/{{ booking.id }}/cancel/"
+               class="btn btn-danger">
+
+                Cancel Booking
+
+            </a>
+
+        {% endif %}
+
+        {% if booking.status == 'completed' %}
+
+            <hr>
+
+            {% if booking.review %}
+
+                <h5>
+                    Review
+                </h5>
+
+                <p>
+
+                    <strong>Rating:</strong>
+
+                    ⭐ {{ booking.review.rating }}/5
+
+                </p>
+
+                <p>
+
+                    <strong>Comment:</strong>
+
+                    {{ booking.review.comment }}
+
+                </p>
+
+            {% else %}
+
+                <a href="/review/{{ booking.id }}/"
+                   class="btn btn-success">
+
+                    Add Review
+
+                </a>
+
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="alert alert-info">
+
+    No bookings found.
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="page-heading mb-4">
+    Provider Dashboard
+</h1>
+
+{% for booking in bookings %}
+
+<div class="card custom-card mb-4">
+
+    <div class="card-body">
+
+        <h4 class="card-title">
+
+            Service Request
+
+        </h4>
+
+        <hr>
+
+        <p>
+
+            <strong>Customer:</strong>
+
+            {{ booking.customer.username }}
+
+        </p>
+
+        <p>
+
+            <strong>Category:</strong>
+
+            {{ booking.provider.category }}
+
+        </p>
+
+        <p>
+
+            <strong>Date:</strong>
+
+            {{ booking.date }}
+
+        </p>
+
+        <p>
+
+            <strong>Address:</strong>
+
+            {{ booking.address }}
+
+        </p>
+
+        <p>
+
+            <strong>Description:</strong>
+
+            {{ booking.description }}
+
+        </p>
+
+        <p>
+
+            <strong>Status:</strong>
+
+            {% if booking.status == 'pending' %}
+
+                <span class="badge bg-warning text-dark">
+                    Pending
+                </span>
+
+            {% elif booking.status == 'accepted' %}
+
+                <span class="badge bg-primary">
+                    Accepted
+                </span>
+
+            {% elif booking.status == 'completed' %}
+
+                <span class="badge bg-success">
+                    Completed
+                </span>
+
+            {% elif booking.status == 'rejected' %}
+
+                <span class="badge bg-danger">
+                    Rejected
+                </span>
+
+            {% endif %}
+
+        </p>
+
+        {% if booking.status == 'pending' %}
+
+            <a href="/booking/{{ booking.id }}/accept/"
+               class="btn btn-success me-2">
+
+                Accept
+
+            </a>
+
+            <a href="/booking/{{ booking.id }}/reject/"
+               class="btn btn-danger">
+
+                Reject
+
+            </a>
+
+        {% elif booking.status == 'accepted' %}
+
+            <a href="/booking/{{ booking.id }}/complete/"
+               class="btn btn-primary">
+
+                Mark Complete
+
+            </a>
+
+        {% elif booking.status == 'completed' %}
+
+            <hr>
+
+            {% if booking.review %}
+
+                <div class="review-box">
+
+                    <div class="review-title">
+
+                        Customer Review
+
+                    </div>
+
+                    <div class="star-rating">
+
+                        {% if booking.review.rating == 1 %}
+                            ⭐
+                        {% elif booking.review.rating == 2 %}
+                            ⭐⭐
+                        {% elif booking.review.rating == 3 %}
+                            ⭐⭐⭐
+                        {% elif booking.review.rating == 4 %}
+                            ⭐⭐⭐⭐
+                        {% elif booking.review.rating == 5 %}
+                            ⭐⭐⭐⭐⭐
+                        {% endif %}
+
+                    </div>
+
+                    <div class="review-comment">
+
+                        "{{ booking.review.comment }}"
+
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <p class="text-muted">
+
+                    Review not submitted yet.
+
+                </p>
+
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="alert alert-info">
+
+    No booking requests available.
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

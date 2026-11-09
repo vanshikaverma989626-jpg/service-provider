@@ -1,0 +1,54 @@
+database after all models addition till reviews:
+Category
+│
+├── Provider 1
+├── Provider 2
+└── Provider 3
+
+User
+│
+└── Profile
+     │
+     ├── role
+     ├── phone
+     ├── category
+     └── experience
+
+Customer
+     │
+     ▼
+  Booking
+     │
+     ▼
+   Review
+
+web application world:
+URLs
+      ↓
+Views
+      ↓
+Templates
+      ↓
+Forms
+      ↓
+Authentication
+      ↓
+Booking Workflow
+
+
+steps to follow:
+✅ Registration
+
+✅ Login
+
+✅ Service Listing
+
+✅ Provider Detail Page
+
+✅ Booking Creation
+
+✅ Review Creation
+
+✅ Search
+
+✅ Bootstrap UI

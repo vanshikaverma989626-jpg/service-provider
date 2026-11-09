@@ -1,0 +1,241 @@
+/* General */
+
+body {
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+
+.navbar {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+
+footer {
+    margin-top: 50px;
+}
+
+/* Home Page */
+
+.hero-title {
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+.service-card {
+    padding: 20px;
+    text-align: center;
+}
+
+.page-heading {
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* Cards */
+
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.custom-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Form Styling */
+
+.form-label {
+    font-weight: 600;
+}
+
+form p {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 6px rgba(13, 110, 253, 0.25);
+}
+
+/* Buttons */
+
+.btn {
+    border-radius: 8px;
+}
+
+/* Booking Status */
+
+.status-pending {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.status-completed {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-rejected {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Alerts */
+
+.alert {
+    border-radius: 10px;
+}
+
+.star-rating {
+    color: #ffc107;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Registration Page */
+
+.register-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #212529;
+}
+
+.register-form input,
+.register-form select {
+
+    width: 100%;
+
+    padding: 12px 15px;
+
+    border: 1px solid #ced4da;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+
+    transition: all 0.3s ease;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+
+    border-color: #198754;
+
+    outline: none;
+
+    box-shadow: 0 0 8px rgba(25, 135, 84, 0.25);
+}
+
+.btn-register {
+
+    padding: 12px;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+
+    transform: translateY(-2px);
+}
+
+.register-form .form-label {
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.register-form .alert {
+
+    border-radius: 10px;
+}
+
+.review-box {
+    background-color: #f8f9fa;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.review-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.review-comment {
+    font-style: italic;
+    color: #555;
+}
+
+.price-tag {
+
+    color: red !important;
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+/* Login Page */
+
+.login-card {
+
+    border: none*
+
+    border-radius: 20px;
+
+    bo*-shadow: 0 10px 25px rgba(0,0,0,0.*8);
+}
+
+.login-card input {
+
+    bo*der-radius: 10px;
+}
+
+.login-card b*tton {
+
+    padding: 12px;
+
+    fo*t-size: 1.05rem;
+
+    font-weight:*600;
+}

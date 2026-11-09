@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="page-heading mb-4">
+    Service Providers
+</h1>
+
+<form method="GET" class="row g-3 mb-4">
+
+    <div class="col-md-5">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search Providers"
+            class="form-control"
+        >
+
+    </div>
+
+    <div class="col-md-4">
+
+        <select
+            name="category"
+            class="form-select"
+        >
+
+            <option value="">
+                All Categories
+            </option>
+
+            {% for category in categories %}
+
+                <option value="{{ category.name }}">
+                    {{ category.name }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <button
+            type="submit"
+            class="btn btn-primary w-100"
+        >
+            Search
+        </button>
+
+    </div>
+
+</form>
+
+<div class="row">
+
+    {% for provider in providers %}
+
+        <div class="col-md-6 mb-4">
+
+            <div class="card custom-card h-100">
+
+                <div class="card-body">
+
+                    <h4 class="card-title">
+                        {{ provider.user.username }}
+                    </h4>
+
+                    <p>
+                        <strong>Category:</strong>
+                        {{ provider.category }}
+                    </p>
+
+                    <p>
+                        <strong>Experience:</strong>
+                        {{ provider.experience_years }}
+                        year(s)
+                    </p>
+
+                    <p class="price-tag">
+                        <strong>Hourly Charges:</strong>
+                        ₹{{ provider.price_per_visit }}/hour
+                    </p>
+
+                    <p>
+
+                        <strong>Status:</strong>
+
+                        {% if provider.is_available %}
+
+                            <span class="badge bg-success">
+                                Available
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-danger">
+                                Unavailable
+                            </span>
+
+                        {% endif %}
+
+                    </p>
+
+                    <a
+                        href="/providers/{{ provider.id }}/"
+                        class="btn btn-outline-primary"
+                    >
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <div class="alert alert-warning">
+
+            No providers found.
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
