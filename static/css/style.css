@@ -219,23 +219,33 @@ form textarea:focus {
 
 .login-card {
 
-    border: none*
+    border: none;
 
     border-radius: 20px;
 
-    bo*-shadow: 0 10px 25px rgba(0,0,0,0.*8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.login-card {
+
+    border: none;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .login-card input {
 
-    bo*der-radius: 10px;
+    border-radius: 10px;
 }
 
-.login-card b*tton {
+.login-card button {
 
     padding: 12px;
 
-    fo*t-size: 1.05rem;
+    font-size: 1.05rem;
 
-    font-weight:*600;
+    font-weight: 600;
 }
