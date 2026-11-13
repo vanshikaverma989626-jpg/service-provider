@@ -3,10 +3,13 @@ venv/
 
 # Python
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
+*.pyd
 
-# Database
+# Django
 db.sqlite3
+staticfiles/
 
 # Environment Variables
 .env
@@ -14,8 +17,9 @@ db.sqlite3
 # VS Code
 .vscode/
 
-# Static files
-staticfiles/
-
 # Media uploads
 media/
+
+# OS files
+.DS_Store
+Thumbs.db
