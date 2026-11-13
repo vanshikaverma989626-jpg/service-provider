@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, ProviderProfileForm
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 def register(request):
 
@@ -76,3 +77,28 @@ def user_logout(request):
 
     return redirect('/login/')
 
+
+@login_required
+def update_provider_profile(request):
+    profile = request.user.profile
+    if profile.role != 'provider':
+        return redirect('/')
+    if request.method == 'POST':
+        form = ProviderProfileForm(
+            request.POST,
+            instance=profile)
+        
+        if form.is_valid():
+            form.save()
+            return redirect(
+                '/provider/dashboard/')
+    else:
+        form = ProviderProfileForm(
+            instance=profile)
+    return render(
+        request,
+        'accounts/provider_profile.html',
+        {
+            'form': form
+        }
+    )

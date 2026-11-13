@@ -8,18 +8,8 @@
 
 <form method="GET" class="row g-3 mb-4">
 
-    <div class="col-md-5">
 
-        <input
-            type="text"
-            name="search"
-            placeholder="Search Providers"
-            class="form-control"
-        >
-
-    </div>
-
-    <div class="col-md-4">
+    <div class="col-md-8">
 
         <select
             name="category"
@@ -32,7 +22,12 @@
 
             {% for category in categories %}
 
-                <option value="{{ category.name }}">
+                <option
+                    value="{{ category.name }}"
+                    {% if selected_category == category.name %}
+                        selected
+                    {% endif %}
+                >
                     {{ category.name }}
                 </option>
 
@@ -42,13 +37,15 @@
 
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
 
         <button
             type="submit"
             class="btn btn-primary w-100"
         >
+
             Search
+
         </button>
 
     </div>
@@ -66,23 +63,35 @@
                 <div class="card-body">
 
                     <h4 class="card-title">
+
                         {{ provider.user.username }}
+
                     </h4>
 
                     <p>
+
                         <strong>Category:</strong>
+
                         {{ provider.category }}
+
                     </p>
 
                     <p>
+
                         <strong>Experience:</strong>
+
                         {{ provider.experience_years }}
+
                         year(s)
+
                     </p>
 
                     <p class="price-tag">
+
                         <strong>Hourly Charges:</strong>
+
                         ₹{{ provider.price_per_visit }}/hour
+
                     </p>
 
                     <p>
@@ -92,13 +101,17 @@
                         {% if provider.is_available %}
 
                             <span class="badge bg-success">
+
                                 Available
+
                             </span>
 
                         {% else %}
 
                             <span class="badge bg-danger">
+
                                 Unavailable
+
                             </span>
 
                         {% endif %}
@@ -109,7 +122,9 @@
                         href="/providers/{{ provider.id }}/"
                         class="btn btn-outline-primary"
                     >
+
                         View Details
+
                     </a>
 
                 </div>

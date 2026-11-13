@@ -3,13 +3,22 @@ from bookings.models import Booking, Review, Profile
 from .forms import BookingForm, ReviewForm
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 @login_required
 def create_booking(request, provider_id):
     provider = get_object_or_404(
         Profile,
         id=provider_id
-    )
+    ) 
+    if not provider.is_available:
+        messages.error(
+            request,
+            'This provider is currently unavailable for bookings.'
+        )
+        return redirect(
+            f'/providers/{provider.id}/'
+        )
     if request.method == 'POST':
         form = BookingForm(
             request.POST
@@ -37,6 +46,7 @@ def create_booking(request, provider_id):
                 booking.provider = provider
                 booking.status = 'pending'
                 booking.save()
+                messages.success(request,'Booking created successfully.')
                 return redirect('/my-bookings/')
     else:
         form = BookingForm()
@@ -63,12 +73,19 @@ def my_bookings(request):
 
 @login_required
 def provider_dashboard(request):
-    if request.user.profile.role != 'provider':
+    profile = request.user.profile
+    if profile.role != 'provider':
         return render(
             request,
             'bookings/not_provider.html'
         )
-    bookings = Booking.objects.filter(provider=request.user.profile)
+    if not profile.category:
+        return redirect(
+            '/provider/profile/')
+    bookings = Booking.objects.filter(
+        provider=profile
+    )
+
     return render(
         request,
         'bookings/provider_dashboard.html',

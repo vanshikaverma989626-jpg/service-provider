@@ -21,6 +21,7 @@
                 <p>
 
                     <strong>Category:</strong>
+
                     {{ provider.category }}
 
                 </p>
@@ -28,6 +29,7 @@
                 <p>
 
                     <strong>Society:</strong>
+
                     {{ provider.society }}
 
                 </p>
@@ -35,7 +37,9 @@
                 <p>
 
                     <strong>Experience:</strong>
+
                     {{ provider.experience_years }}
+
                     Year(s)
 
                 </p>
@@ -63,13 +67,17 @@
                     {% if provider.is_available %}
 
                         <span class="badge bg-success">
+
                             Available
+
                         </span>
 
                     {% else %}
 
                         <span class="badge bg-danger">
+
                             Unavailable
+
                         </span>
 
                     {% endif %}
@@ -78,14 +86,29 @@
 
                 <div class="mt-4">
 
-                    <a
-                        href="/book/{{ provider.id }}/"
-                        class="btn btn-primary"
-                    >
+                    {% if user.is_authenticated and user == provider.user %}
 
-                        Book Service
+                        <a
+                            href="/provider/profile/"
+                            class="btn btn-warning"
+                        >
 
-                    </a>
+                            Edit Profile
+
+                        </a>
+
+                    {% else %}
+
+                        <a
+                            href="/book/{{ provider.id }}/"
+                            class="btn btn-primary"
+                        >
+
+                            Book Service
+
+                        </a>
+
+                    {% endif %}
 
                     <a
                         href="/providers/"

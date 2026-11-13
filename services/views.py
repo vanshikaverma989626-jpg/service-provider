@@ -44,7 +44,9 @@ def provider_list(request):
         'services/provider_list.html',
         {
             'providers': providers,
-            'categories': categories
+            'categories': categories,
+            'search_query': search,
+            'selected_category': category
         }
     )
 

@@ -21,4 +21,10 @@ urlpatterns = [
         name='logout'
     ),
 
+    path(
+    'provider/profile/',
+    views.update_provider_profile,
+    name='provider_profile'
+    ),
+
 ]
