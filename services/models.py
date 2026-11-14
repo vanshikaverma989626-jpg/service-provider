@@ -4,7 +4,6 @@ from django.db import models
 class Category(models.Model):       #created a db table for the job category
     name = models.CharField(max_length=50) # name of job
     description = models.TextField()  #work description
-
     class Meta: # only affects admin display(the spelling of the plural name of the model in the admin interface)
         verbose_name_plural = "Categories"
 

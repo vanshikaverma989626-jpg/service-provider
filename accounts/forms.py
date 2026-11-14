@@ -4,18 +4,14 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 class RegisterForm(UserCreationForm):
-
     role = forms.ChoiceField(
         choices=[
             ('customer', 'Customer'),
             ('provider', 'Provider')
         ]
     )
-
     class Meta:
-
         model = User
-
         fields = [
             'username',
             'email',
@@ -25,11 +21,8 @@ class RegisterForm(UserCreationForm):
         ]
 
 class ProviderProfileForm(forms.ModelForm):
-
     class Meta:
-
         model = Profile
-
         fields = [
             'phone',
             'society',

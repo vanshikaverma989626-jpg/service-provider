@@ -20,9 +20,7 @@ class BookingForm(forms.ModelForm):
         return booking_date
 
 class ReviewForm(forms.ModelForm):
-
     rating = forms.ChoiceField(
-
         choices=[
             (1, '⭐'),
             (2, '⭐⭐'),
@@ -32,11 +30,8 @@ class ReviewForm(forms.ModelForm):
         ]
 
     )
-
     class Meta:
-
         model = Review
-
         fields = [
             'rating',
             'comment'

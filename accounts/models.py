@@ -4,12 +4,10 @@ from services.models import Category
 #User model of django gives us username password and email fields. We will create a profile model to store additional information about the user.
 
 class Profile(models.Model):
-
     ROLE_CHOICES = [
         ('customer', 'Customer'),
         ('provider', 'Provider'),
     ]                               # creates adropdown instead of random values in the role field of the profile model. The first value is stored in the database and the second value is displayed in the dropdown.
-
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE
