@@ -1,23 +1,15 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
 <div class="row justify-content-center">
-
     <div class="col-md-8">
-
         <div class="card custom-card shadow-sm">
-
             <div class="card-body p-4">
-
                 <h2 class="mb-3">
 
                     {{ provider.user.username }}
 
                 </h2>
-
                 <hr>
-
                 <p>
 
                     <strong>Category:</strong>
@@ -25,7 +17,6 @@
                     {{ provider.category }}
 
                 </p>
-
                 <p>
 
                     <strong>Society:</strong>
@@ -33,7 +24,6 @@
                     {{ provider.society }}
 
                 </p>
-
                 <p>
 
                     <strong>Experience:</strong>
@@ -43,7 +33,6 @@
                     Year(s)
 
                 </p>
-
                 <p>
 
                     <strong>Charges:</strong>
@@ -51,7 +40,6 @@
                     ₹{{ provider.price_per_visit }}/hour
 
                 </p>
-
                 <p>
 
                     <strong>Phone:</strong>
@@ -59,7 +47,6 @@
                     {{ provider.phone }}
 
                 </p>
-
                 <p>
 
                     <strong>Availability:</strong>
@@ -83,11 +70,8 @@
                     {% endif %}
 
                 </p>
-
                 <div class="mt-4">
-
                     {% if user.is_authenticated and user == provider.user %}
-
                         <a
                             href="/provider/profile/"
                             class="btn btn-warning"
@@ -96,9 +80,7 @@
                             Edit Profile
 
                         </a>
-
                     {% else %}
-
                         <a
                             href="/book/{{ provider.id }}/"
                             class="btn btn-primary"
@@ -107,9 +89,7 @@
                             Book Service
 
                         </a>
-
                     {% endif %}
-
                     <a
                         href="/providers/"
                         class="btn btn-secondary"
@@ -118,15 +98,9 @@
                         Back
 
                     </a>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 {% endblock %}

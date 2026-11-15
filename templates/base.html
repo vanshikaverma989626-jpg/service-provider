@@ -10,10 +10,10 @@
 
     <title>HouseHelp</title>
 
+    {% load static %}
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet">
-
-    {% load static %}
 
     <link rel="stylesheet"
           href="{% static 'css/style.css' %}">
@@ -22,146 +22,291 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Header Starts -->
 
-        <div class="container">
+    <header>
 
-            <a class="navbar-brand"
-               href="/">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-                HouseHelp
+            <div class="container">
 
-            </a>
-
-            <div class="navbar-nav">
-
-                <a class="nav-link"
+                <a class="navbar-brand fw-bold"
                    href="/">
 
-                    Home
+                    🏠 HouseHelp
 
                 </a>
 
-                <a class="nav-link"
-                   href="/providers/">
-
-                    Providers
-
-                </a>
-
-                {% if user.is_authenticated %}
-
-                    <a class="nav-link"
-                       href="/my-bookings/">
-
-                        My Bookings
-
-                    </a>
-
-                    {% if user_profile and user_profile.role == 'provider' %}
-
-                        <a class="nav-link"
-                           href="/provider/profile/">
-
-                            My Profile
-
-                        </a>
-
-                        <a class="nav-link"
-                           href="/provider/dashboard/">
-
-                            Provider Dashboard
-
-                        </a>
-
-                    {% endif %}
-
-                {% endif %}
-
-            </div>
-
-            <div class="navbar-nav ms-auto">
-
-                {% if user.is_authenticated %}
-
-                    <span class="navbar-text text-white me-3">
-
-                        Welcome,
-                        {{ user.username|title }}
-
-                    </span>
-
-                    <a class="nav-link"
-                       href="/logout/">
-
-                        Logout
-
-                    </a>
-
-                {% else %}
-
-                    <a class="nav-link"
-                       href="/register/">
-
-                        Register
-
-                    </a>
-
-                    <a class="nav-link"
-                       href="/login/">
-
-                        Login
-
-                    </a>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-    </nav>
-
-    <div class="container mt-4">
-
-        {% if messages %}
-
-            {% for message in messages %}
-
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
-                     role="alert">
-
-                    {{ message }}
-
-                    <button
+                <button class="navbar-toggler"
                         type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label="Close">
-                    </button>
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="navbarNav">
+
+                    <!-- Navigation Links -->
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="/">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="/providers/">
+
+                                Providers
+
+                            </a>
+
+                        </li>
+
+                        {% if user.is_authenticated %}
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="/my-bookings/">
+
+                                    My Bookings
+
+                                </a>
+
+                            </li>
+
+                            {% if user.profile.role == 'provider' %}
+
+                                <li class="nav-item">
+
+                                    <a class="nav-link"
+                                       href="/provider/profile/">
+
+                                        My Profile
+
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item">
+
+                                    <a class="nav-link"
+                                       href="/provider/dashboard/">
+
+                                        Provider Dashboard
+
+                                    </a>
+
+                                </li>
+
+                            {% endif %}
+
+                        {% endif %}
+
+                    </ul>
+
+                    <!-- User Menu -->
+
+                    <ul class="navbar-nav ms-auto">
+
+                        {% if user.is_authenticated %}
+
+                            <li class="nav-item">
+
+                                <span class="navbar-text text-white me-3">
+
+                                    Welcome,
+                                    {{ user.username|title }}
+
+                                </span>
+
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="/logout/">
+
+                                    Logout
+
+                                </a>
+
+                            </li>
+
+                        {% else %}
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="/register/">
+
+                                    Register
+
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="/login/">
+
+                                    Login
+
+                                </a>
+
+                            </li>
+
+                        {% endif %}
+
+                    </ul>
 
                 </div>
 
-            {% endfor %}
+            </div>
 
-        {% endif %}
+        </nav>
 
-        {% block content %}
-        {% endblock %}
+    </header>
 
-    </div>
+    <!-- Header Ends -->
 
-    <footer class="bg-light text-center p-3 mt-5 border-top">
 
-        <p class="mb-0">
 
-            HouseHelp Project | Django Service Marketplace
+    <!-- Main Starts -->
 
-        </p>
+    <main>
+
+        <section class="container mt-4">
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="alert alert-{{ message.tags }}
+                                alert-dismissible fade show"
+                         role="alert">
+
+                        {{ message }}
+
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Close">
+
+                        </button>
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+    <!-- Main Ends -->
+
+
+
+    <!-- Footer Starts -->
+
+    <footer class="bg-light border-top mt-5">
+
+        <section class="container py-4">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <h5>🏠 HouseHelp</h5>
+
+                    <p>
+
+                        Trusted marketplace connecting
+                        customers with skilled service providers.
+
+                    </p>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <h5>Quick Links</h5>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="/providers/">Providers</a>
+                        </li>
+
+                        <li>
+                            <a href="/register/">Register</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <h5>Services</h5>
+
+                    <ul class="list-unstyled">
+
+                        <li>Electrician</li>
+                        <li>Plumbing</li>
+                        <li>Cleaning</li>
+                        <li>Carpentry</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <p class="text-center mb-0">
+
+                © 2026 HouseHelp |
+                Django Service Marketplace
+
+            </p>
+
+        </section>
 
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer Ends -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+
+    </script>
 
 </body>
 

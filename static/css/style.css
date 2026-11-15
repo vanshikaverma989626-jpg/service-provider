@@ -1,251 +1,379 @@
-/* General */
+/*  HOUSEHELP THEME
+purple pink circles and white 
+*/
 
-body {
-    background-color: #f4f6f9;
-    font-family: Arial, sans-serif;
+:root{
+    --purple:#87518e;
+    --pink:#f5a3b6;
+    --yellow:#ded67b;
+
+    --light-bg:#f6eef4;
+    --card-bg:#ffffff;
+    --text:#333333;
 }
 
-/* Navbar */
+/*
+   GENERAL
+ */
 
-.navbar {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+body{
+    background:var(--light-bg);
+    font-family:'Segoe UI', Arial, sans-serif;
+    color:var(--text);
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
 }
 
-/* Footer */
+/* Background decorative circles */
+body::before{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    background:var(--purple);
+    opacity:.12;
+    top:-150px;
+    right:-120px;
+    z-index:-1;
+}
 
-footer {
+body::after{
+    content:"";
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:var(--pink);
+    opacity:.15;
+    bottom:-100px;
+    left:-100px;
+    z-index:-1;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* 
+   NAVBAR
+*/
+
+.navbar{
+    background:var(--purple)!important;
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.10);
+}
+
+.navbar-brand{
+    font-weight:700;
+}
+
+.nav-link{
+    color:white !important;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:var(--yellow)!important;
+}
+
+/* 
+   FOOTER
+*/
+
+footer{
+    background: #fff2b2;
+    color: #5a3560;
     margin-top: 50px;
+    padding: 20px 0;
+    box-shadow:
+    0 -5px 20px rgba(0,0,0,.05);
 }
 
-/* Home Page */
+footer p,
+footer h5,
+footer li,
+footer a{
 
-.hero-title {
-    color: #0d6efd;
-    font-weight: bold;
+    color:#5a3560 !important;
 }
 
-.service-card {
-    padding: 20px;
-    text-align: center;
+/* 
+   HERO
+ */
+
+.hero-title{
+    color:var(--purple);
+    font-weight:700;
 }
 
-.page-heading {
-    font-weight: bold;
-    color: #0d6efd;
+.hero-subtitle{
+    color:var(--pink);
+    font-size:1.25rem;
 }
 
-/* Cards */
+/*
+   HEADINGS
+*/
 
-.card {
-    border: none;
-    border-radius: 15px;
-    transition: all 0.3s ease;
+.page-heading{
+    color:var(--purple);
+    font-weight:700;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+/* 
+   CARDS
+*/
+
+.card{
+    border:none;
+    border-radius:20px;
+    transition:.3s ease;
+    background:var(--card-bg);
+    box-shadow:
+    0 6px 15px rgba(0,0,0,.08);
 }
 
-.custom-card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.12);
 }
 
-/* Form Styling */
-
-.form-label {
-    font-weight: 600;
+.custom-card{
+    border:none;
+    border-radius:20px;
+    background:white;
+    box-shadow:
+    0 6px 15px rgba(0,0,0,.08);
 }
 
-form p {
-    margin-bottom: 15px;
+/* 
+   SERVICE CARDS
+*/
+
+.service-card{
+    padding:20px;
+    text-align:center;
 }
 
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
+/*
+   FORMS
+*/
+
+.form-label{
+    font-weight:600;
+}
+
+form p{
+    margin-bottom:15px;
+}
+
+form label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:600;
 }
 
 form input,
 form select,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
+form textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ced4da;
+    border-radius:12px;
 }
 
 form input:focus,
 form select:focus,
-form textarea:focus {
-    outline: none;
-    border-color: #0d6efd;
-    box-shadow: 0 0 6px rgba(13, 110, 253, 0.25);
+form textarea:focus{
+    outline:none;
+    border-color:var(--purple);
+    box-shadow:
+    0 0 8px rgba(135,81,142,.25);
 }
 
-/* Buttons */
+/* 
+   BUTTONS
+*/
 
-.btn {
-    border-radius: 8px;
+.btn{
+    border-radius:12px;
 }
 
-/* Booking Status */
-
-.status-pending {
-    color: #ff9800;
-    font-weight: bold;
+.btn-primary{
+    background:var(--pink);
+    border:none;
 }
 
-.status-completed {
-    color: #28a745;
-    font-weight: bold;
+.btn-primary:hover{
+    background:#ec89a2;
 }
 
-.status-rejected {
-    color: #dc3545;
-    font-weight: bold;
+.btn-success{
+    background:var(--purple);
+    border:none;
 }
 
-/* Alerts */
-
-.alert {
-    border-radius: 10px;
+.btn-success:hover{
+    background:#73427e;
 }
 
-.star-rating {
-    color: #ffc107;
-    font-size: 1.3rem;
-    letter-spacing: 2px;
-    font-weight: bold;
+/*
+   BOOKING STATUS
+*/
+
+.status-pending{
+    color:#f0aa00;
+    font-weight:bold;
 }
 
-/* Registration Page */
+.status-completed{
+    color:#28a745;
+    font-weight:bold;
+}
 
-.register-title {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #212529;
+.status-rejected{
+    color:#dc3545;
+    font-weight:bold;
+}
+
+/* 
+   ALERTS
+*/
+
+.alert{
+    border-radius:12px;
+}
+
+/*
+   RATINGS
+ */
+
+.star-rating{
+    color:#ffc107;
+    font-size:1.3rem;
+    letter-spacing:2px;
+    font-weight:bold;
+}
+
+/*
+   REGISTRATION PAGE
+*/
+
+.register-title{
+    font-size:3rem;
+    font-weight:700;
+    color:var(--purple);
 }
 
 .register-form input,
-.register-form select {
-
-    width: 100%;
-
-    padding: 12px 15px;
-
-    border: 1px solid #ced4da;
-
-    border-radius: 10px;
-
-    font-size: 1rem;
-
-    transition: all 0.3s ease;
+.register-form select{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #ced4da;
+    border-radius:12px;
+    font-size:1rem;
+    transition:.3s ease;
 }
 
 .register-form input:focus,
-.register-form select:focus {
-
-    border-color: #198754;
-
-    outline: none;
-
-    box-shadow: 0 0 8px rgba(25, 135, 84, 0.25);
+.register-form select:focus{
+    border-color:var(--purple);
+    outline:none;
+    box-shadow:
+    0 0 8px rgba(135,81,142,.25);
 }
 
-.btn-register {
-
-    padding: 12px;
-
-    font-size: 1.1rem;
-
-    font-weight: 600;
-
-    border-radius: 10px;
-
-    transition: all 0.3s ease;
+.btn-register{
+    padding:12px;
+    font-size:1.1rem;
+    font-weight:600;
+    border-radius:12px;
+    transition:.3s;
 }
 
-.btn-register:hover {
-
-    transform: translateY(-2px);
+.btn-register:hover{
+    transform:translateY(-2px);
 }
 
-.register-form .form-label {
-
-    font-weight: 600;
-
-    margin-bottom: 8px;
+.register-form .form-label{
+    font-weight:600;
+    margin-bottom:8px;
 }
 
-.register-form .alert {
-
-    border-radius: 10px;
+.register-form .alert{
+    border-radius:12px;
 }
 
-.review-box {
-    background-color: #f8f9fa;
-    border-left: 5px solid #ffc107;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 10px;
+/* 
+   REVIEWS
+*/
+
+.review-box{
+    background:white;
+    border-left:5px solid var(--pink);
+    padding:15px;
+    margin-top:15px;
+    border-radius:12px;
 }
 
-.review-title {
-    font-weight: 700;
-    margin-bottom: 10px;
+.review-title{
+    font-weight:700;
+    margin-bottom:10px;
 }
 
-.review-comment {
-    font-style: italic;
-    color: #555;
+.review-comment{
+    font-style:italic;
+    color:#555;
 }
 
-.price-tag {
+/*
+   PRICE
+*/
 
-    color: red !important;
-
-    font-size: 1.2rem;
-
-    font-weight: 700;
-
-    margin-top: 10px;
+.price-tag{
+    color:var(--purple)!important;
+    font-size:1.2rem;
+    font-weight:700;
+    margin-top:10px;
 }
 
+/* 
+   LOGIN PAGE
+*/
 
-/* Login Page */
-
-.login-card {
-
-    border: none;
-
-    border-radius: 20px;
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+.login-card{
+    border:none;
+    border-radius:20px;
+    background:white;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
 }
 
-
-.login-card {
-
-    border: none;
-
-    border-radius: 20px;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+.login-card input{
+    border-radius:10px;
 }
 
-.login-card input {
-
-    border-radius: 10px;
+.login-card button{
+    padding:12px;
+    font-size:1.05rem;
+    font-weight:600;
 }
 
-.login-card button {
+.hero-image{
+    max-height:450px;
+    transition:.4s ease;
+}
 
-    padding: 12px;
+.hero-image:hover{
+    transform:scale(1.03);
+}
 
-    font-size: 1.05rem;
-
-    font-weight: 600;
+.hero-section{
+    background:rgba(255,255,255,.5);
+    border-radius:30px;
+    padding:30px;
 }

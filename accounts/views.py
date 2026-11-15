@@ -6,16 +6,11 @@ from .models import Profile
 from django.contrib.auth.decorators import login_required
 
 def register(request):
-
     if request.method == 'POST':
-
         form = RegisterForm(request.POST)
-
         if form.is_valid():
-
             user= form.save()
             role = form.cleaned_data['role']
-
             # Create a profile for the user
             Profile.objects.create(
                 user=user,
@@ -23,13 +18,9 @@ def register(request):
                 phone='',
                 society=''
             )
-
             return redirect('/login/')
-
     else:
-
         form = RegisterForm()
-
     return render(
         request,
         'accounts/register.html',
@@ -39,30 +30,20 @@ def register(request):
     )
 
 def user_login(request):
-
     error = None
-
     if request.method == 'POST':
-
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         user = authenticate(
             request,
             username=username,
             password=password
         )
-
         if user is not None:
-
             login(request, user)
-
             return redirect('/')
-
         else:
-
             error = "Invalid username or password."
-
     return render(
         request,
         'accounts/login.html',
@@ -72,9 +53,7 @@ def user_login(request):
     )
 
 def user_logout(request):
-
     logout(request)
-
     return redirect('/login/')
 
 

@@ -1,258 +1,236 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+<main>
+    <!-- Hero Section -->
+    <section class="hero-section py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <header>
+                    <p class="hero-subtitle fw-bold">
+                        Trusted • Professional • Reliable
+                    </p>
+                    <h1 class="hero-title display-2">
+                        HouseHelp
+                    </h1>
+                    <p class="lead text-muted">
 
-<div class="text-center py-5">
+                        Reliable Home Services At Your Doorstep
 
-    <h1 class="hero-title display-2">
-        HouseHelp
-    </h1>
+                    </p>
+                </header>
+                <p class="text-muted">
 
-    <p class="hero-subtitle mt-3">
-        Reliable Home Services At Your Doorstep
-    </p>
+                    Connect with trusted local service providers
+                    for household and professional needs.
 
-    <p class="text-muted">
-        Connect with trusted local service
-        providers for household and professional needs.
-    </p>
-
-    <a href="/providers/"
-       class="btn btn-primary btn-lg mt-3">
-
-        Browse Providers
-
-    </a>
-
-</div>
-
-<hr class="my-5">
-
-<div class="row text-center">
-
-    <div class="col-md-4 mb-4">
-
-        <div class="card custom-card h-100">
-
-            <div class="card-body">
-
-                <h1>🔧</h1>
-
-                <h4>Electricians</h4>
-
-                <p>
-                    Electrical repairs and installations.
                 </p>
+                <a href="/providers/" class="btn btn-primary btn-lg mt-3">
 
+                    Browse Providers
+
+                </a>
             </div>
+            <div class="col-lg-6 text-center">
+                <figure>
+                    <img
+                        src="{% static 'images/home-hero.png' %}" alt="HouseHelp Home Services"class="img-fluid hero-image">
+                    <figcaption class="text-muted mt-2">
 
-        </div>
+                        Trusted Professionals For Every Home Need
 
-    </div>
-
-    <div class="col-md-4 mb-4">
-
-        <div class="card custom-card h-100">
-
-            <div class="card-body">
-
-                <h1>🚿</h1>
-
-                <h4>Plumbers</h4>
-
-                <p>
-                    Plumbing repairs and maintenance.
-                </p>
-
+                    </figcaption>
+                </figure>
             </div>
-
         </div>
+    </section>
+    <hr class="my-5">
 
-    </div>
+    <!-- Services Section -->
+    <section>
+        <header class="text-center mb-5">
+            <h2 class="page-heading">
+                Popular Services
+            </h2>
+            <p class="text-muted">
 
-    <div class="col-md-4 mb-4">
+                Find skilled professionals
+                for every household need.
 
-        <div class="card custom-card h-100">
+            </p>
+        </header>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card h-100 service-card">
+                    <div class="card-body">
+                        <h1>🔧</h1>
+                        <h4>Electricians</h4>
+                        <p>
 
-            <div class="card-body">
+                            Electrical repairs and installations.
 
-                <h1>🪚</h1>
-
-                <h4>Carpenters</h4>
-
-                <p>
-                    Furniture and woodwork services.
-                </p>
-
+                        </p>
+                    </div>
+                </article>
             </div>
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card h-100 service-card">
+                    <div class="card-body">
+                        <h1>🚿</h1>
+                        <h4>Plumbers</h4>
+                        <p>
 
-        </div>
+                            Plumbing repairs and maintenance.
 
-    </div>
-
-    <div class="col-md-4 mb-4">
-
-        <div class="card custom-card h-100">
-
-            <div class="card-body">
-
-                <h1>🔧🚗</h1>
-
-                <h4>Mechanics</h4>
-
-                <p>
-                    Vehicle repair and maintenance.
-                </p>
-
+                        </p>
+                    </div>
+                </article>
             </div>
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card h-100 service-card">
+                    <div class="card-body">
+                        <h1>🪚</h1>
+                        <h4>Carpenters</h4>
+                        <p>
 
-        </div>
+                            Furniture and woodwork services.
 
-    </div>
-
-    <div class="col-md-4 mb-4">
-
-        <div class="card custom-card h-100">
-
-            <div class="card-body">
-
-                <h1>📚</h1>
-
-                <h4>Tutors</h4>
-
-                <p>
-                    Learning support and academic guidance.
-                </p>
-
+                        </p>
+                    </div>
+                </article>
             </div>
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card h-100 service-card">
+                    <div class="card-body">
+                        <h1>🔧🚗</h1>
+                        <h4>Mechanics</h4>
+                        <p>
 
-        </div>
+                            Vehicle repair and maintenance.
 
-    </div>
-
-    <div class="col-md-4 mb-4">
-
-        <div class="card custom-card h-100">
-
-            <div class="card-body">
-
-                <h1>🧹</h1>
-
-                <h4>Cleaners</h4>
-
-                <p>
-                    Professional cleaning and housekeeping services.
-                </p>
-
+                        </p>
+                    </div>
+                </article>
             </div>
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card h-100 service-card">
+                    <div class="card-body">
+                        <h1>📚</h1>
+                        <h4>Tutors</h4>
+                        <p>
 
-        </div>
+                            Learning support and academic guidance.
 
-    </div>
-
-</div>
-
-<div class="text-center mt-5">
-
-    <h3>
-        Why Choose HouseHelp?
-    </h3>
-
-    <p class="text-muted">
-
-        Search providers, book services,
-        track booking status and review completed services
-        all in one platform.
-
-    </p>
-
-</div>
-
-<hr class="my-5">
-
-<div class="row text-center">
-
-    <div class="col-md-4 mb-4">
-
-        <div class="card custom-card">
-
-            <div class="card-body">
-
-                <h2 class="text-primary">
-                    6+
-                </h2>
-
-                <p>
-                    Service Categories
-                </p>
-
+                        </p>
+                    </div>
+                </article>
             </div>
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card h-100 service-card">
+                    <div class="card-body">
+                        <h1>🧹</h1>
+                        <h4>Cleaners</h4>
+                        <p>
 
-        </div>
+                            Professional cleaning and housekeeping services.
 
-    </div>
-
-    <div class="col-md-4 mb-4">
-
-        <div class="card custom-card">
-
-            <div class="card-body">
-
-                <h2 class="text-success">
-                    Trusted
-                </h2>
-
-                <p>
-                    Service Providers
-                </p>
-
+                        </p>
+                    </div>
+                </article>
             </div>
-
         </div>
+    </section>
+    <hr class="my-5">
 
-    </div>
+    <!-- Why Choose Us -->
+    <section>
+        <aside class="text-center">
+            <h3>
+                Why Choose HouseHelp?
+            </h3>
+            <p class="text-muted">
 
-    <div class="col-md-4 mb-4">
+                Search providers, book services,
+                track booking status and review completed services
+                all in one platform.
 
-        <div class="card custom-card">
+            </p>
+        </aside>
+    </section>
 
-            <div class="card-body">
+    <!-- Quick Benefits -->
+    <section class="my-5">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card">
+                    <div class="card-body">
+                        <h2 class="hero-title">
 
-                <h2 class="text-warning">
-                    Easy
-                </h2>
+                            6+
 
-                <p>
-                    Booking Experience
-                </p>
+                        </h2>
+                        <p>
 
+                            Service Categories
+
+                        </p>
+                    </div>
+                </article>
             </div>
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card">
+                    <div class="card-body">
+                        <h2 class="hero-title">
 
+                            Trusted
+
+                        </h2>
+                        <p>
+
+                            Service Providers
+
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4 mb-4">
+                <article class="card custom-card">
+                    <div class="card-body">
+                        <h2 class="hero-title">
+
+                            Easy
+
+                        </h2>
+                        <p>
+
+                            Booking Experience
+
+                        </p>
+                    </div>
+                </article>
+            </div>
         </div>
+    </section>
+    <hr>
 
-    </div>
+    <!-- Call To Action -->
+    <section class="text-center py-5">
+        <h2>
 
-</div>
+            Ready To Get Started?
 
-<div class="text-center mt-5 mb-5">
+        </h2>
+        <p class="text-muted">
 
-    <h2>
-        Ready to Get Started?
-    </h2>
+            Find trusted professionals and book services today.
 
-    <p class="text-muted">
+        </p>
+        <a href="/providers/" class="btn btn-success btn-lg">
 
-        Find trusted professionals and book services today.
+            Explore Providers
 
-    </p>
+        </a>
+    </section>
 
-    <a href="/providers/"
-       class="btn btn-success btn-lg">
-
-        Explore Providers
-
-    </a>
-
-</div>
-
+</main>
 {% endblock %}
