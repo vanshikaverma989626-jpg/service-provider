@@ -80,8 +80,8 @@ def user_logout(request):
 
 @login_required
 def update_provider_profile(request):
-    profile = request.user.profile
-    if profile.role != 'provider':
+    profile = getattr(request.user, 'profile', None)
+    if not profile or profile.role != 'provider':
         return redirect('/')
     if request.method == 'POST':
         form = ProviderProfileForm(

@@ -58,7 +58,7 @@
 
                     </a>
 
-                    {% if user.profile.role == 'provider' %}
+                    {% if user_profile and user_profile.role == 'provider' %}
 
                         <a class="nav-link"
                            href="/provider/profile/">
