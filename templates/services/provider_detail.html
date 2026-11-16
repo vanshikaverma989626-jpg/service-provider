@@ -1,23 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <div class="row justify-content-center">
-
     <div class="col-md-8">
-
         <div class="card custom-card shadow-sm">
-
             <div class="card-body p-4">
-
                 <h2 class="mb-3">
 
                     {{ provider.user.username }}
 
                 </h2>
-
                 <hr>
-
                 <p>
 
                     <strong>Category:</strong>
@@ -25,7 +18,6 @@
                     {{ provider.category }}
 
                 </p>
-
                 <p>
 
                     <strong>Society:</strong>
@@ -33,7 +25,6 @@
                     {{ provider.society }}
 
                 </p>
-
                 <p>
 
                     <strong>Experience:</strong>
@@ -42,7 +33,6 @@
                     Year(s)
 
                 </p>
-
                 <p>
 
                     <strong>Charges:</strong>
@@ -50,7 +40,6 @@
                     ₹{{ provider.price_per_visit }}/hour
 
                 </p>
-
                 <p>
 
                     <strong>Phone:</strong>
@@ -58,96 +47,66 @@
                     {{ provider.phone }}
 
                 </p>
-
                 <p>
 
                     <strong>Availability:</strong>
-
                     {% if provider.is_available %}
-
                         <span class="badge bg-success">
 
                             Available
 
                         </span>
-
                     {% else %}
-
                         <span class="badge bg-danger">
 
                             Unavailable
 
                         </span>
-
                     {% endif %}
-
                 </p>
-
                 <div class="mt-4">
-
                     {% if user.is_authenticated and user == provider.user %}
-
                         <a
-                            href="/provider/profile/"
-                            class="btn btn-warning">
+                            href="/provider/profile/" class="btn btn-warning">
 
                             Edit Profile
 
                         </a>
-
                     {% else %}
-
                         <a
-                            href="/book/{{ provider.id }}/"
-                            class="btn btn-primary">
+                            href="/book/{{ provider.id }}/" class="btn btn-primary">
 
                             Book Service
 
                         </a>
-
                     {% endif %}
-
                     <a
-                        href="/providers/"
-                        class="btn btn-secondary">
+                        href="/providers/" class="btn btn-secondary">
 
                         Back
 
                     </a>
-
                 </div>
-
             </div>
-
         </div>
-
         <!-- Reviews Section -->
-
         <div class="card custom-card shadow-sm mt-4">
-
             <div class="card-body">
-
                 <h3 class="mb-3">
 
                     Customer Reviews
 
                 </h3>
-
                 <p class="text-muted">
 
                     Reviews Found:
                     {{ reviews.count }}
 
                 </p>
-
                 {% for booking in reviews %}
-
                     {% if booking.review %}
-
                         <div class="review-box">
-
                             <div class="star-rating">
-
                                 {% if booking.review.rating == 1 %}
                                     ⭐
                                 {% elif booking.review.rating == 2 %}
@@ -161,33 +120,22 @@
                                 {% endif %}
 
                             </div>
-
                             <div class="review-comment">
 
                                 "{{ booking.review.comment }}"
 
                             </div>
-
                         </div>
-
                     {% endif %}
-
                 {% empty %}
-
                     <p class="text-muted">
 
                         No reviews yet.
 
                     </p>
-
                 {% endfor %}
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 {% endblock %}

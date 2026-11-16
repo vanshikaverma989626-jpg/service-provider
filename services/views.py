@@ -41,17 +41,14 @@ def provider_list(request):
     )
 
 def provider_detail(request, id):
-
     provider = get_object_or_404(
         Profile,
         id=id
     )
-
     reviews = Booking.objects.filter(
         provider=provider,
         status='completed'
     )
-
     return render(
         request,
         'services/provider_detail.html',
