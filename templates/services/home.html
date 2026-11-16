@@ -2,234 +2,130 @@
 {% load static %}
 {% block content %}
 <main>
-    <!-- Hero Section -->
-    <section class="hero-section py-5">
-        <div class="row align-items-center">
+
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="row align-items-center g-4">
             <div class="col-lg-6">
                 <header>
-                    <p class="hero-subtitle fw-bold">
-                        Trusted • Professional • Reliable
-                    </p>
-                    <h1 class="hero-title display-2">
-                        HouseHelp
-                    </h1>
-                    <p class="lead text-muted">
-
-                        Reliable Home Services At Your Doorstep
-
-                    </p>
+                    <p class="hero-badge">Trusted • Professional • Reliable</p>
+                    <h1 class="hero-title">HouseHelp</h1>
+                    <p class="hero-lead">Reliable Home Services At Your Doorstep</p>
                 </header>
-                <p class="text-muted">
-
+                <p class="hero-copy">
                     Connect with trusted local service providers
                     for household and professional needs.
-
                 </p>
-                <a href="/providers/" class="btn btn-primary btn-lg mt-3">
-
-                    Browse Providers
-
-                </a>
+                <a href="/providers/" class="btn btn-primary btn-lg mt-3">Browse Providers</a>
             </div>
             <div class="col-lg-6 text-center">
-                <figure>
-                    <img
-                        src="{% static 'images/home-hero.png' %}" alt="HouseHelp Home Services"class="img-fluid hero-image">
-                    <figcaption class="text-muted mt-2">
-
-                        Trusted Professionals For Every Home Need
-
-                    </figcaption>
+                <figure class="hero-figure">
+                    <img src="{% static 'images/home-hero.png' %}?v=2" alt="HouseHelp Home Services" class="img-fluid hero-image">
+                    <figcaption>Trusted Professionals For Every Home Need</figcaption>
                 </figure>
             </div>
         </div>
     </section>
-    <hr class="my-5">
 
-    <!-- Services Section -->
-    <section>
-        <header class="text-center mb-5">
-            <h2 class="page-heading">
-                Popular Services
-            </h2>
-            <p class="text-muted">
-
-                Find skilled professionals
-                for every household need.
-
-            </p>
+    <!-- Services -->
+    <section class="block">
+        <header class="mb-4">
+            <h2 class="page-heading section-title">Popular Services</h2>
+            <p class="section-intro">Find skilled professionals for every household need.</p>
         </header>
-        <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card h-100 service-card">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <article class="card service-card tone-yellow h-100">
                     <div class="card-body">
-                        <h1>🔧</h1>
-                        <h4>Electricians</h4>
-                        <p>
-
-                            Electrical repairs and installations.
-
-                        </p>
+                        <div class="service-icon" aria-hidden="true">⚡</div>
+                        <h3>Electricians</h3>
+                        <p>Electrical repairs and installations.</p>
                     </div>
                 </article>
             </div>
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card h-100 service-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="card service-card tone-pink h-100">
                     <div class="card-body">
-                        <h1>🚿</h1>
-                        <h4>Plumbers</h4>
-                        <p>
-
-                            Plumbing repairs and maintenance.
-
-                        </p>
+                        <div class="service-icon" aria-hidden="true">🚿</div>
+                        <h3>Plumbers</h3>
+                        <p>Plumbing repairs and maintenance.</p>
                     </div>
                 </article>
             </div>
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card h-100 service-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="card service-card tone-purple h-100">
                     <div class="card-body">
-                        <h1>🪚</h1>
-                        <h4>Carpenters</h4>
-                        <p>
-
-                            Furniture and woodwork services.
-
-                        </p>
+                        <div class="service-icon" aria-hidden="true">🪚</div>
+                        <h3>Carpenters</h3>
+                        <p>Furniture and woodwork services.</p>
                     </div>
                 </article>
             </div>
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card h-100 service-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="card service-card tone-pink h-100">
                     <div class="card-body">
-                        <h1>🔧🚗</h1>
-                        <h4>Mechanics</h4>
-                        <p>
-
-                            Vehicle repair and maintenance.
-
-                        </p>
+                        <div class="service-icon" aria-hidden="true">🚗</div>
+                        <h3>Mechanics</h3>
+                        <p>Vehicle repair and maintenance.</p>
                     </div>
                 </article>
             </div>
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card h-100 service-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="card service-card tone-purple h-100">
                     <div class="card-body">
-                        <h1>📚</h1>
-                        <h4>Tutors</h4>
-                        <p>
-
-                            Learning support and academic guidance.
-
-                        </p>
+                        <div class="service-icon" aria-hidden="true">📚</div>
+                        <h3>Tutors</h3>
+                        <p>Learning support and academic guidance.</p>
                     </div>
                 </article>
             </div>
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card h-100 service-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="card service-card tone-yellow h-100">
                     <div class="card-body">
-                        <h1>🧹</h1>
-                        <h4>Cleaners</h4>
-                        <p>
-
-                            Professional cleaning and housekeeping services.
-
-                        </p>
+                        <div class="service-icon" aria-hidden="true">🧹</div>
+                        <h3>Cleaners</h3>
+                        <p>Professional cleaning and housekeeping services.</p>
                     </div>
                 </article>
             </div>
         </div>
     </section>
-    <hr class="my-5">
 
-    <!-- Why Choose Us -->
-    <section>
-        <aside class="text-center">
-            <h3>
-                Why Choose HouseHelp?
-            </h3>
-            <p class="text-muted">
-
-                Search providers, book services,
-                track booking status and review completed services
-                all in one platform.
-
-            </p>
-        </aside>
-    </section>
-
-    <!-- Quick Benefits -->
-    <section class="my-5">
-        <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card">
-                    <div class="card-body">
-                        <h2 class="hero-title">
-
-                            6+
-
-                        </h2>
-                        <p>
-
-                            Service Categories
-
-                        </p>
-                    </div>
-                </article>
+    <!-- Why choose us -->
+    <section class="block why-band">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <h2 class="why-title">Why Choose HouseHelp?</h2>
+                <p class="why-copy">
+                    Search providers, book services,
+                    track booking status and review completed services
+                    all in one platform.
+                </p>
             </div>
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card">
-                    <div class="card-body">
-                        <h2 class="hero-title">
-
-                            Trusted
-
-                        </h2>
-                        <p>
-
-                            Service Providers
-
-                        </p>
+            <div class="col-lg-7">
+                <div class="stat-grid">
+                    <div class="stat-circle stat-circle--pink stat-circle--num">
+                        <strong>6+</strong>
+                        <span>Service Categories</span>
                     </div>
-                </article>
-            </div>
-            <div class="col-md-4 mb-4">
-                <article class="card custom-card">
-                    <div class="card-body">
-                        <h2 class="hero-title">
-
-                            Easy
-
-                        </h2>
-                        <p>
-
-                            Booking Experience
-
-                        </p>
+                    <div class="stat-circle stat-circle--yellow">
+                        <strong>Trusted</strong>
+                        <span>Service Providers</span>
                     </div>
-                </article>
+                    <div class="stat-circle stat-circle--white">
+                        <strong>Easy</strong>
+                        <span>Booking Experience</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <hr>
 
-    <!-- Call To Action -->
-    <section class="text-center py-5">
-        <h2>
-
-            Ready To Get Started?
-
-        </h2>
-        <p class="text-muted">
-
-            Find trusted professionals and book services today.
-
-        </p>
-        <a href="/providers/" class="btn btn-success btn-lg">
-
-            Explore Providers
-
-        </a>
+    <!-- Call to action -->
+    <section class="block cta-block">
+        <h2>Ready To Get Started?</h2>
+        <p>Find trusted professionals and book services today.</p>
+        <a href="/providers/" class="btn btn-success btn-lg">Explore Providers</a>
     </section>
 
 </main>

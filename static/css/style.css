@@ -1,54 +1,74 @@
-/*  HOUSEHELP THEME
-purple pink circles and white 
+/*  HOUSEHELP THEME: bold purple, pink and butter yellow
+    Thick ink outlines, hard offset shadows, big circles.
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&display=swap');
 
 :root{
     --purple:#87518e;
     --pink:#f5a3b6;
     --yellow:#ded67b;
 
+    --plum:#3a1642;
+    --ink:#241029;
     --light-bg:#f6eef4;
     --card-bg:#ffffff;
-    --text:#333333;
+    --text:#2e1c33;
+    --muted:#5b4663;
+
+    --font-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+    --font-body:'DM Sans','Segoe UI',system-ui,sans-serif;
+
+    --line:3px solid var(--ink);
+    --shadow:6px 6px 0 var(--ink);
+    --shadow-lg:10px 10px 0 var(--ink);
 }
 
-/*
-   GENERAL
- */
+/* GENERAL */
 
 body{
     background:var(--light-bg);
-    font-family:'Segoe UI', Arial, sans-serif;
+    font-family:var(--font-body);
     color:var(--text);
     min-height:100vh;
     position:relative;
     overflow-x:hidden;
 }
 
+h1,h2,h3,h4,h5,h6{
+    font-family:var(--font-display);
+    font-weight:800;
+    letter-spacing:-.02em;
+}
+
+.text-muted{
+    color:var(--muted) !important;
+}
+
 /* Background decorative circles */
 body::before{
     content:"";
     position:fixed;
-    width:400px;
-    height:400px;
+    width:460px;
+    height:460px;
     border-radius:50%;
     background:var(--purple);
-    opacity:.12;
-    top:-150px;
-    right:-120px;
+    opacity:.16;
+    top:-170px;
+    right:-140px;
     z-index:-1;
 }
 
 body::after{
     content:"";
     position:fixed;
-    width:300px;
-    height:300px;
+    width:340px;
+    height:340px;
     border-radius:50%;
     background:var(--pink);
-    opacity:.15;
-    bottom:-100px;
-    left:-100px;
+    opacity:.28;
+    bottom:-110px;
+    left:-110px;
     z-index:-1;
 }
 
@@ -56,57 +76,148 @@ a{
     text-decoration:none;
 }
 
-/* 
-   NAVBAR
-*/
+*:focus-visible{
+    outline:3px solid var(--ink);
+    outline-offset:3px;
+    box-shadow:0 0 0 3px #fff;
+}
+
+/* NAVBAR */
 
 .navbar{
-    background:var(--purple)!important;
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.10);
+    background:var(--plum) !important;
+    border-bottom:4px solid var(--pink);
+    box-shadow:none;
 }
 
 .navbar-brand{
-    font-weight:700;
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:1.5rem;
+    letter-spacing:-.03em;
+    color:var(--yellow) !important;
 }
 
 .nav-link{
-    color:white !important;
-    transition:.3s;
+    color:#fff !important;
+    font-weight:500;
+    transition:.2s;
 }
 
 .nav-link:hover{
-    color:var(--yellow)!important;
+    color:var(--yellow) !important;
 }
 
-/* 
-   FOOTER
-*/
+/* FOOTER */
 
 footer{
-    background: #fff2b2;
-    color: #5a3560;
-    margin-top: 50px;
-    padding: 20px 0;
-    box-shadow:
-    0 -5px 20px rgba(0,0,0,.05);
+    background:var(--yellow);
+    color:var(--ink);
+    margin-top:80px;
+    padding:28px 0;
+    border-top:var(--line);
 }
 
 footer p,
 footer h5,
 footer li,
 footer a{
-
-    color:#5a3560 !important;
+    color:var(--ink) !important;
 }
 
-/* 
-   HERO
- */
+/* HERO */
 
-.hero-title{
-    color:var(--purple);
+.hero-section{
+    position:relative;
+    overflow:hidden;
+    background:var(--purple);
+    color:#fff;
+    border:var(--line);
+    border-radius:40px;
+    box-shadow:var(--shadow-lg);
+    padding:clamp(24px,5vw,64px);
+    margin-top:1.5rem;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:var(--yellow);
+    color:var(--ink);
     font-weight:700;
+    font-size:.95rem;
+    padding:6px 16px;
+    border:2px solid var(--ink);
+    border-radius:999px;
+    margin-bottom:1.25rem;
+}
+
+.hero-section .hero-title{
+    color:#fff;
+    font-size:clamp(2.8rem,7.5vw,5.75rem);
+    font-weight:800;
+    line-height:.92;
+    letter-spacing:-.05em;
+    margin-bottom:1rem;
+    overflow-wrap:anywhere;
+}
+
+.hero-lead{
+    font-family:var(--font-display);
+    font-size:clamp(1.25rem,2.4vw,1.7rem);
+    font-weight:600;
+    color:var(--yellow);
+    margin-bottom:1rem;
+}
+
+.hero-copy{
+    color:#fff;
+    font-size:1.1rem;
+    max-width:34rem;
+}
+
+.hero-figure{
+    position:relative;
+    margin:0;
+}
+
+.hero-figure::before{
+    content:"";
+    position:absolute;
+    width:88%;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:var(--pink);
+    border:var(--line);
+    left:50%;
+    top:46%;
+    transform:translate(-50%,-50%);
+    animation:pop .8s cubic-bezier(.2,1.4,.4,1) both;
+}
+
+.hero-image{
+    position:relative;
+    max-height:420px;
+}
+
+.hero-figure figcaption{
+    position:relative;
+    z-index:2;
+    display:table;              /* shrink-wraps the pill and centres it */
+    margin:1.25rem auto 0;
+    padding:8px 20px;
+    background:var(--yellow);
+    color:var(--ink);
+    font-weight:700;
+    font-size:1rem;
+    text-align:center;
+    border:2px solid var(--ink);
+    border-radius:999px;
+    box-shadow:4px 4px 0 var(--ink);
+}
+
+@keyframes pop{
+    from{transform:translate(-50%,-50%) scale(.5);opacity:0;}
+    to{transform:translate(-50%,-50%) scale(1);opacity:1;}
 }
 
 .hero-subtitle{
@@ -114,57 +225,200 @@ footer a{
     font-size:1.25rem;
 }
 
-/*
-   HEADINGS
-*/
+/* Generic hero-title (stat numbers etc. outside the hero) */
+.hero-title{
+    color:var(--purple);
+    font-weight:800;
+}
+
+/* HEADINGS */
 
 .page-heading{
-    color:var(--purple);
-    font-weight:700;
+    color:var(--ink);
+    font-weight:800;
+    font-size:clamp(2rem,4.5vw,3rem);
+    display:inline-block;
+    background:linear-gradient(transparent 62%, var(--pink) 62%);
+    padding:0 .15em;
 }
 
-/* 
-   CARDS
-*/
-
-.card{
-    border:none;
-    border-radius:20px;
-    transition:.3s ease;
-    background:var(--card-bg);
-    box-shadow:
-    0 6px 15px rgba(0,0,0,.08);
+.section-intro{
+    color:var(--muted);
+    font-size:1.1rem;
+    margin:.5rem 0 0;
 }
 
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.12);
+.block{
+    margin-top:clamp(3rem,8vw,6rem);
 }
 
+/* CARDS */
+
+.card,
 .custom-card{
-    border:none;
-    border-radius:20px;
-    background:white;
-    box-shadow:
-    0 6px 15px rgba(0,0,0,.08);
+    border:var(--line);
+    border-radius:24px;
+    background:var(--card-bg);
+    box-shadow:var(--shadow);
 }
 
-/* 
-   SERVICE CARDS
-*/
+/* SERVICE CARDS */
 
 .service-card{
-    padding:20px;
-    text-align:center;
+    padding:14px;
+    text-align:left;
+    transition:transform .2s ease, box-shadow .2s ease;
 }
 
-/*
-   FORMS
-*/
+.service-card:hover{
+    transform:translate(-4px,-4px);
+    box-shadow:10px 10px 0 var(--ink);
+}
+
+.service-card h3{
+    font-size:1.65rem;
+    margin:.25rem 0 .4rem;
+}
+
+.service-card p{
+    margin:0;
+    font-size:1.02rem;
+}
+
+.service-icon{
+    width:76px;
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2.2rem;
+    background:#fff;
+    border:var(--line);
+    border-radius:50%;
+    margin-bottom:1rem;
+}
+
+.tone-yellow{background:var(--yellow);}
+.tone-pink{background:var(--pink);}
+.tone-purple{background:var(--purple);color:#fff;}
+.tone-purple .service-icon{background:var(--yellow);}
+
+/* WHY CHOOSE US */
+
+.why-band{
+    position:relative;
+    overflow:hidden;
+    background:var(--plum);
+    color:#fff;
+    border:var(--line);
+    border-radius:40px;
+    box-shadow:var(--shadow-lg);
+    padding:clamp(28px,5vw,64px);
+}
+
+.why-title{
+    color:#fff;
+    font-size:clamp(2rem,4.5vw,3.25rem);
+    line-height:1;
+    margin-bottom:1rem;
+}
+
+.why-copy{
+    font-size:1.15rem;
+    max-width:30rem;
+    margin:0;
+}
+
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:18px;
+}
+
+.stat-circle{
+    aspect-ratio:1;
+    border-radius:50%;
+    border:var(--line);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:12px;
+    color:var(--ink);
+}
+
+.stat-circle strong{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(1.3rem,2.4vw,1.9rem);
+    line-height:1.05;
+}
+
+.stat-circle--num strong{
+    font-size:clamp(2.4rem,5vw,3.6rem);
+}
+
+.stat-circle span{
+    font-size:.92rem;
+    font-weight:500;
+    line-height:1.2;
+    margin-top:4px;
+}
+
+.stat-circle--pink{background:var(--pink);}
+.stat-circle--yellow{background:var(--yellow);}
+.stat-circle--white{background:#fff;}
+
+@media (min-width:768px){
+    .stat-circle:nth-child(2){transform:translateY(28px);}
+}
+
+/* CALL TO ACTION */
+
+.cta-block{
+    position:relative;
+    overflow:hidden;
+    background:var(--yellow);
+    border:var(--line);
+    border-radius:40px;
+    box-shadow:var(--shadow-lg);
+    padding:clamp(28px,5vw,64px);
+}
+
+.cta-block::after{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:var(--pink);
+    border:var(--line);
+    right:-70px;
+    bottom:-90px;
+    z-index:0;
+}
+
+.cta-block > *{
+    position:relative;
+    z-index:1;
+}
+
+.cta-block h2{
+    font-size:clamp(2.2rem,5.5vw,4rem);
+    line-height:1;
+    margin-bottom:.75rem;
+}
+
+.cta-block p{
+    font-size:1.15rem;
+    margin-bottom:1.25rem;
+}
+
+/* FORMS */
 
 .form-label{
-    font-weight:600;
+    font-weight:700;
 }
 
 form p{
@@ -174,206 +428,317 @@ form p{
 form label{
     display:block;
     margin-bottom:5px;
-    font-weight:600;
+    font-weight:700;
 }
 
 form input,
 form select,
 form textarea{
     width:100%;
-    padding:10px;
-    border:1px solid #ced4da;
-    border-radius:12px;
+    padding:10px 14px;
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:14px;
+}
+
+form input[type="checkbox"],
+form input[type="radio"]{
+    width:auto;
 }
 
 form input:focus,
 form select:focus,
 form textarea:focus{
-    outline:none;
-    border-color:var(--purple);
-    box-shadow:
-    0 0 8px rgba(135,81,142,.25);
+    outline:3px solid var(--purple);
+    outline-offset:2px;
+    border-color:var(--ink);
+    box-shadow:4px 4px 0 var(--pink);
 }
 
-/* 
-   BUTTONS
-*/
+/* BUTTONS */
 
 .btn{
-    border-radius:12px;
+    border:var(--line);
+    border-radius:999px;
+    font-weight:700;
+    color:var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.btn:hover{
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 var(--ink);
+}
+
+.btn:active{
+    transform:translate(3px,3px);
+    box-shadow:1px 1px 0 var(--ink);
 }
 
 .btn-primary{
     background:var(--pink);
-    border:none;
+    border:var(--line);
+    color:var(--ink);
 }
 
-.btn-primary:hover{
+.btn-primary:hover,
+.btn-primary:focus{
     background:#ec89a2;
+    color:var(--ink);
+    border:var(--line);
 }
 
 .btn-success{
     background:var(--purple);
-    border:none;
+    border:var(--line);
+    color:#fff;
 }
 
-.btn-success:hover{
+.btn-success:hover,
+.btn-success:focus{
     background:#73427e;
+    color:#fff;
+    border:var(--line);
 }
 
-/*
-   BOOKING STATUS
-*/
+/* On the purple hero the pink button needs the yellow treatment to pop */
+.hero-section .btn-primary{
+    background:var(--yellow);
+}
+
+.hero-section .btn-primary:hover{
+    background:#e9e28f;
+}
+
+/* BOOKING STATUS (pills) */
+
+.status-pending,
+.status-completed,
+.status-rejected{
+    display:inline-block;
+    padding:3px 14px;
+    border:2px solid var(--ink);
+    border-radius:999px;
+    font-weight:700;
+}
 
 .status-pending{
-    color:#f0aa00;
-    font-weight:bold;
+    background:#ffe08a;
+    color:#5c4100;
 }
 
 .status-completed{
-    color:#28a745;
-    font-weight:bold;
+    background:#b8ecc7;
+    color:#0f5a26;
 }
 
 .status-rejected{
-    color:#dc3545;
-    font-weight:bold;
+    background:#ffc2c9;
+    color:#8a1020;
 }
 
-/* 
-   ALERTS
-*/
+/* ALERTS */
 
 .alert{
-    border-radius:12px;
+    border:2px solid var(--ink);
+    border-radius:16px;
+    font-weight:500;
 }
 
-/*
-   RATINGS
- */
+/* RATINGS */
 
 .star-rating{
-    color:#ffc107;
+    color:#e89b00;
     font-size:1.3rem;
     letter-spacing:2px;
     font-weight:bold;
 }
 
-/*
-   REGISTRATION PAGE
-*/
+/* REGISTRATION PAGE */
 
 .register-title{
-    font-size:3rem;
-    font-weight:700;
-    color:var(--purple);
+    font-family:var(--font-display);
+    font-size:clamp(2.2rem,6vw,3.5rem);
+    font-weight:800;
+    letter-spacing:-.03em;
+    color:var(--ink);
 }
 
 .register-form input,
 .register-form select{
     width:100%;
     padding:12px 15px;
-    border:1px solid #ced4da;
-    border-radius:12px;
+    border:2px solid var(--ink);
+    border-radius:14px;
     font-size:1rem;
-    transition:.3s ease;
+    transition:.2s ease;
 }
 
 .register-form input:focus,
 .register-form select:focus{
-    border-color:var(--purple);
-    outline:none;
-    box-shadow:
-    0 0 8px rgba(135,81,142,.25);
+    border-color:var(--ink);
+    outline:3px solid var(--purple);
+    outline-offset:2px;
+    box-shadow:4px 4px 0 var(--pink);
 }
 
 .btn-register{
     padding:12px;
     font-size:1.1rem;
-    font-weight:600;
-    border-radius:12px;
-    transition:.3s;
-}
-
-.btn-register:hover{
-    transform:translateY(-2px);
+    font-weight:700;
 }
 
 .register-form .form-label{
-    font-weight:600;
+    font-weight:700;
     margin-bottom:8px;
 }
 
 .register-form .alert{
-    border-radius:12px;
+    border-radius:16px;
 }
 
-/* 
-   REVIEWS
-*/
+/* REVIEWS */
 
 .review-box{
-    background:white;
-    border-left:5px solid var(--pink);
-    padding:15px;
+    background:#fff;
+    border:2px solid var(--ink);
+    border-left:10px solid var(--pink);
+    padding:15px 18px;
     margin-top:15px;
-    border-radius:12px;
+    border-radius:16px;
 }
 
 .review-title{
-    font-weight:700;
+    font-weight:800;
     margin-bottom:10px;
 }
 
 .review-comment{
     font-style:italic;
-    color:#555;
+    color:var(--muted);
 }
 
-/*
-   PRICE
-*/
+/* PRICE */
 
 .price-tag{
-    color:var(--purple)!important;
-    font-size:1.2rem;
-    font-weight:700;
+    display:inline-block;
+    background:var(--yellow);
+    color:var(--ink) !important;
+    border:2px solid var(--ink);
+    border-radius:999px;
+    padding:2px 14px;
+    font-size:1.15rem;
+    font-weight:800;
     margin-top:10px;
 }
 
-/* 
-   LOGIN PAGE
-*/
+/* LOGIN PAGE */
 
 .login-card{
-    border:none;
-    border-radius:20px;
-    background:white;
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    border:var(--line);
+    border-radius:28px;
+    background:#fff;
+    box-shadow:var(--shadow-lg);
 }
 
 .login-card input{
-    border-radius:10px;
+    border-radius:14px;
 }
 
 .login-card button{
     padding:12px;
     font-size:1.05rem;
-    font-weight:600;
+    font-weight:700;
 }
 
-.hero-image{
-    max-height:450px;
-    transition:.4s ease;
+/* MOTION PREFERENCES */
+
+@media (prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+    }
 }
 
-.hero-image:hover{
-    transform:scale(1.03);
+/* =====================================================
+   COLOURFUL CARDS (keep this section at the END of the file)
+   ===================================================== */
+
+/* 1. Default colour for any card on any page */
+.card:not(.service-card),
+.custom-card{
+    background:var(--yellow);
 }
 
-.hero-section{
-    background:rgba(255,255,255,.5);
-    border-radius:30px;
-    padding:30px;
+/* 2. Cards inside a grid (row > col): cycle yellow > pink > purple.
+      Used by the Providers page. */
+.row > div:nth-child(3n+2) > .card:not(.service-card),
+.row > div:nth-child(3n+2) > .custom-card{
+    background:var(--pink);
+}
+
+.row > div:nth-child(3n) > .card:not(.service-card),
+.row > div:nth-child(3n) > .custom-card{
+    background:var(--purple);
+    color:#fff;
+}
+
+.row > div:nth-child(3n) > .card .text-muted{
+    color:#f0e4f2 !important;
+}
+
+.row > div:nth-child(3n+2) > .card .btn-primary{
+    background:var(--yellow);
+}
+
+.row > div:nth-child(3n) > .card .btn-success{
+    background:var(--pink);
+    color:var(--ink);
+}
+
+/* 3. Stacked cards (Provider Dashboard etc.): colour comes from the
+      cycle class in the template */
+.card.custom-card.tone-yellow{
+    background:var(--yellow);
+    color:var(--ink);
+}
+
+.card.custom-card.tone-pink{
+    background:var(--pink);
+    color:var(--ink);
+}
+
+.card.custom-card.tone-purple{
+    background:var(--purple);
+    color:#fff;
+}
+
+.card.custom-card.tone-purple .text-muted{
+    color:#f0e4f2 !important;
+}
+
+.card.custom-card.tone-purple hr{
+    border-color:#fff;
+    opacity:.5;
+}
+
+.card.custom-card.tone-pink .btn-primary{
+    background:var(--yellow);
+}
+
+.card.custom-card.tone-purple .btn-success{
+    background:var(--pink);
+    color:var(--ink);
+}
+
+/* 4. Things that must stay readable on every card colour */
+.card .review-box{
+    color:var(--text);
+}
+
+.card .price-tag{
+    background:#fff;
 }

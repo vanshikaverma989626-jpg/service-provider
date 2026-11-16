@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from accounts.models import Profile, Category
 from django.shortcuts import get_object_or_404
+from bookings.models import Booking
 def home(request):
     providers = Profile.objects.all() # give me every profile stored in database
     return render(
@@ -40,11 +41,22 @@ def provider_list(request):
     )
 
 def provider_detail(request, id):
-    provider = get_object_or_404(Profile,id=id) #get the object, if doesnot exist show 404 page, dont crash
+
+    provider = get_object_or_404(
+        Profile,
+        id=id
+    )
+
+    reviews = Booking.objects.filter(
+        provider=provider,
+        status='completed'
+    )
+
     return render(
         request,
         'services/provider_detail.html',
         {
-            'provider': provider
+            'provider': provider,
+            'reviews': reviews
         }
     )
